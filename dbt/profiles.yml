@@ -1,0 +1,7 @@
+portfolio:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: target/portfolio.duckdb
+      threads: 4

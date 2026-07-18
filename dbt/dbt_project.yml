@@ -1,0 +1,26 @@
+name: portfolio_metrics
+version: "0.1.0"
+profile: portfolio
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+models:
+  portfolio_metrics:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
+
+seeds:
+  portfolio_metrics:
+    raw_extractions:
+      +column_types:
+        value_raw: varchar
+        layer1_verified: boolean
+    document_notes:
+      +column_types:
+        note: varchar

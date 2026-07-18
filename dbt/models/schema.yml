@@ -1,0 +1,78 @@
+version: 2
+
+models:
+  - name: stg_extractions
+    description: >
+      Typed extraction rows. Grain: one row per (source_file, company_name,
+      period, canonical_metric). Monetary values normalized to millions.
+    columns:
+      - name: canonical_metric
+        tests:
+          - not_null
+          - accepted_values:
+              values:
+                - recognized_revenue
+                - arr
+                - gross_margin
+                - ebitda
+                - net_dollar_retention
+                - logo_churn
+                - cash_balance
+                - monthly_net_burn
+                - headcount
+      - name: value_num
+        tests:
+          - not_null
+      - name: unit
+        tests:
+          - accepted_values:
+              values: [currency_m, pct, count, bps, ratio_x]
+
+  - name: int_metrics_resolved
+    description: >
+      Entity-resolved extraction rows. Grain: one row per (source_file,
+      canonical_company, period, canonical_metric).
+    columns:
+      - name: canonical_company
+        tests:
+          - not_null
+      - name: source_type
+        tests:
+          - accepted_values:
+              values: [standalone, snapshot]
+
+  - name: mart_portfolio_metrics
+    description: >
+      Tidy portfolio metrics. Grain: one row per (canonical_company, period,
+      canonical_metric). Standalone reports win over snapshot values; snapshot
+      provides a cross-source agreement check.
+    columns:
+      - name: metric_key
+        tests:
+          - not_null
+          - unique
+      - name: value_num
+        tests:
+          - not_null
+
+  - name: mart_metric_pivot
+    description: >
+      Wide review table. Grain: one row per (canonical_company, period).
+
+seeds:
+  - name: raw_extractions
+    description: Output of extract/run_extraction.py — verbatim values, both layers reconciled.
+  - name: document_notes
+    description: Entity and metric-definition notes surfaced by the LLM layer per document.
+  - name: entity_map
+    description: >
+      Human-reviewed mapping from reported company names to canonical entities.
+      Populated from document_notes (e.g. FleetLink -> Apex Freight rebrand).
+    columns:
+      - name: reported_name
+        tests:
+          - not_null
+          - unique
+      - name: canonical_company
+        tests:
+          - not_null
