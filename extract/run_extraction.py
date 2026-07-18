@@ -14,6 +14,7 @@ Outputs (dbt seeds):
 from __future__ import annotations
 
 import csv
+import re
 import sys
 import time
 from pathlib import Path
@@ -33,11 +34,18 @@ EXTRACTION_COLUMNS = [
     "canonical_metric",
     "reported_label",
     "value_raw",
-    "layer1_verified",
+    "verification",
     "notes",
 ]
 
 NOTES_COLUMNS = ["source_file", "note_type", "note"]
+
+
+def write_csv(path: Path, rows: list[dict], columns: list[str]) -> None:
+    with open(path, "w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(rows)
 
 
 def normalize_value(v: str) -> str:
@@ -45,21 +53,46 @@ def normalize_value(v: str) -> str:
     return v.replace(" ", "").strip()
 
 
+def normalize_label(s: str) -> str:
+    return re.sub(r"\s+", " ", s).strip().lower()
+
+
 def reconcile(llm_result: dict, layer1_pairs: list, source_file: str) -> list[dict]:
-    layer1_values = {normalize_value(p.value_raw) for p in layer1_pairs}
+    """Grade each LLM metric against the deterministic net.
+
+    pair       — label, value, and quarter all match: fully verified
+    value_only — the number exists in that quarter under a different label
+                 (e.g. footnote/prose the parser cannot pair): review
+    none       — the number is not in the parser's net at all: flag hard
+    """
+    triples = {
+        (normalize_label(p.label_raw), normalize_value(p.value_raw), p.period)
+        for p in layer1_pairs
+    }
+    value_periods = {(normalize_value(p.value_raw), p.period) for p in layer1_pairs}
     rows = []
     for company in llm_result["companies"]:
         for metric in company["metrics"]:
+            key3 = (
+                normalize_label(metric["reported_label"]),
+                normalize_value(metric["value_raw"]),
+                metric["period"],
+            )
+            verification = (
+                "pair" if key3 in triples
+                else "value_only" if key3[1:] in value_periods
+                else "none"
+            )
             rows.append(
                 {
                     "source_file": source_file,
                     "company_name": company["company_name"],
-                    "period": company["period"],
+                    "period": metric["period"],
                     "currency": company["currency"],
                     "canonical_metric": metric["canonical_metric"],
                     "reported_label": metric["reported_label"],
                     "value_raw": metric["value_raw"],
-                    "layer1_verified": normalize_value(metric["value_raw"]) in layer1_values,
+                    "verification": verification,
                     "notes": metric.get("notes") or "",
                 }
             )
@@ -85,26 +118,22 @@ def main() -> None:
                 all_notes.append(
                     {"source_file": pdf.name, "note_type": note_type, "note": result[note_type]}
                 )
-        verified = sum(r["layer1_verified"] for r in rows)
-        print(f"{len(rows)} metrics, {verified} verified against Layer 1")
+        tiers = {t: sum(1 for r in rows if r["verification"] == t) for t in ("pair", "value_only", "none")}
+        print(f"{len(rows)} metrics — pair: {tiers['pair']}, value_only: {tiers['value_only']}, none: {tiers['none']}")
         time.sleep(0.5)  # gentle on rate limits
 
-    with open(SEED_DIR / "raw_extractions.csv", "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=EXTRACTION_COLUMNS)
-        writer.writeheader()
-        writer.writerows(all_rows)
-    with open(SEED_DIR / "document_notes.csv", "w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=NOTES_COLUMNS)
-        writer.writeheader()
-        writer.writerows(all_notes)
+    write_csv(SEED_DIR / "raw_extractions.csv", all_rows, EXTRACTION_COLUMNS)
+    write_csv(SEED_DIR / "document_notes.csv", all_notes, NOTES_COLUMNS)
+    print(f"\nWrote {len(all_rows)} metric rows and {len(all_notes)} document notes -> {SEED_DIR}")
 
-    unverified = [r for r in all_rows if not r["layer1_verified"]]
-    print(f"\nWrote {len(all_rows)} metric rows -> {SEED_DIR / 'raw_extractions.csv'}")
-    print(f"Wrote {len(all_notes)} document notes -> {SEED_DIR / 'document_notes.csv'}")
-    if unverified:
-        print(f"\n{len(unverified)} rows NOT verified against Layer 1 (review these):")
-        for r in unverified:
-            print(f"  {r['source_file']}: {r['canonical_metric']} = {r['value_raw']!r} ({r['notes']})")
+    flagged = [r for r in all_rows if r["verification"] != "pair"]
+    if flagged:
+        print(f"\n{len(flagged)} rows need review (verification != 'pair'):")
+        for r in flagged:
+            print(
+                f"  [{r['verification']}] {r['source_file']}: [{r['period']}] {r['canonical_metric']}"
+                f" = {r['value_raw']!r} label={r['reported_label']!r} ({r['notes']})"
+            )
 
 
 if __name__ == "__main__":

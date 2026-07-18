@@ -31,66 +31,51 @@ CANONICAL_METRICS = [
     "headcount",
 ]
 
+
+def _str(desc: str) -> dict:
+    return {"type": "string", "description": desc}
+
+
+def _opt_str(desc: str) -> dict:
+    return {"type": ["string", "null"], "description": desc}
+
+
+def _arr(items: dict) -> dict:
+    return {"type": "array", "items": items}
+
+
+METRIC_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "canonical_metric": {"type": "string", "enum": CANONICAL_METRICS},
+        "period": _str("Quarter THIS VALUE belongs to, e.g. 'Q2 2025' — one entry per quarter column"),
+        "reported_label": _str("Label VERBATIM from the document"),
+        "value_raw": _str("Value VERBATIM, e.g. '$8.4M', '78%', '($0.75M)', '142'. Never convert or compute"),
+        "notes": _opt_str("Caveats: definition changed vs prior quarters, prose/footnote source, non-monthly burn, etc."),
+    },
+    "required": ["canonical_metric", "period", "reported_label", "value_raw"],
+}
+
+COMPANY_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "company_name": _str("Company name as stated in the document (not the filename)"),
+        "period": _str("The report's primary period, e.g. 'Q2 2025'"),
+        "currency": _str("ISO currency code for monetary values (USD, GBP...); 'unknown' if not determinable"),
+        "metrics": _arr(METRIC_SCHEMA),
+    },
+    "required": ["company_name", "period", "currency", "metrics"],
+}
+
 EXTRACTION_TOOL = {
     "name": "record_extraction",
     "description": "Record the metrics extracted from a portfolio company report.",
     "input_schema": {
         "type": "object",
         "properties": {
-            "companies": {
-                "type": "array",
-                "items": {
-                    "type": "object",
-                    "properties": {
-                        "company_name": {
-                            "type": "string",
-                            "description": "Company name as stated in the document (not the filename).",
-                        },
-                        "period": {
-                            "type": "string",
-                            "description": "Reporting period, e.g. 'Q2 2025'.",
-                        },
-                        "currency": {
-                            "type": "string",
-                            "description": "ISO currency code for monetary values (USD, GBP, EUR...). 'unknown' if not determinable.",
-                        },
-                        "metrics": {
-                            "type": "array",
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "canonical_metric": {
-                                        "type": "string",
-                                        "enum": CANONICAL_METRICS,
-                                    },
-                                    "reported_label": {
-                                        "type": "string",
-                                        "description": "The label VERBATIM as it appears in the document.",
-                                    },
-                                    "value_raw": {
-                                        "type": "string",
-                                        "description": "The value VERBATIM, e.g. '$8.4M', '78%', '($0.75M)', '142'. Never convert or compute.",
-                                    },
-                                    "notes": {
-                                        "type": ["string", "null"],
-                                        "description": "Caveats: definition changed vs prior quarters, value found in prose/footnote rather than a table, burn reported quarterly instead of monthly, etc.",
-                                    },
-                                },
-                                "required": ["canonical_metric", "reported_label", "value_raw"],
-                            },
-                        },
-                    },
-                    "required": ["company_name", "period", "currency", "metrics"],
-                },
-            },
-            "entity_notes": {
-                "type": ["string", "null"],
-                "description": "Any rebrand, rename, or corporate identity change mentioned (e.g. 'Company X was formerly Company Y, effective <date>').",
-            },
-            "definition_notes": {
-                "type": ["string", "null"],
-                "description": "Any footnote stating a metric was renamed or its definition changed vs prior reporting.",
-            },
+            "companies": _arr(COMPANY_SCHEMA),
+            "entity_notes": _opt_str("Any rebrand, rename, or corporate identity change mentioned"),
+            "definition_notes": _opt_str("Any footnote on metric renames or definition changes vs prior reporting"),
         },
         "required": ["companies", "entity_notes", "definition_notes"],
     },
@@ -111,6 +96,7 @@ Mapping guidance:
 
 Rules:
 - Values VERBATIM. Never compute, convert units, or annualize.
+- Metric periods follow the table columns exactly: a single-column table yields ONE entry per metric, for that column's quarter (or the report's own quarter if no column header). A two-column quarter table yields one entry per column. Never emit more entries than the table has quarter columns. Prior-period figures mentioned in prose ("up from 4.4M in Q4 2024") do NOT count — table columns only; prose numbers are rounded narrative.
 - A metric found only in prose or a footnote still counts — extract it and note where it came from.
 - Skip metrics that are absent. Do not guess.
 - Determine currency from context (e.g. "Net Pound Retention" implies GBP; "(USD)" implies USD). Use 'unknown' if unclear.
@@ -134,10 +120,7 @@ def extract_document(client: anthropic.Anthropic, text: str, source_file: str) -
         tools=[EXTRACTION_TOOL],
         tool_choice={"type": "tool", "name": "record_extraction"},
         messages=[
-            {
-                "role": "user",
-                "content": f"Document filename: {source_file}\n\n---\n\n{text}",
-            }
+            {"role": "user", "content": f"Document filename: {source_file}\n\n---\n\n{text}"}
         ],
     )
     for block in response.content:

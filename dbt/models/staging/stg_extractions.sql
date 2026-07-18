@@ -18,7 +18,7 @@ parsed as (
         canonical_metric,
         reported_label,
         value_raw,
-        layer1_verified,
+        verification,
         notes,
 
         (value_raw like '(%' or value_raw like '-%') as is_negative,
@@ -55,7 +55,7 @@ select
     canonical_metric,
     reported_label,
     value_raw,
-    layer1_verified,
+    verification,
     notes,
     unit,
     case when is_negative then -1 else 1 end

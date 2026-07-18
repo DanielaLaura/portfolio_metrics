@@ -27,6 +27,10 @@ models:
         tests:
           - accepted_values:
               values: [currency_m, pct, count, bps, ratio_x]
+      - name: verification
+        tests:
+          - accepted_values:
+              values: [pair, value_only, none]
 
   - name: int_metrics_resolved
     description: >
@@ -40,6 +44,10 @@ models:
         tests:
           - accepted_values:
               values: [standalone, snapshot]
+      - name: provenance
+        tests:
+          - accepted_values:
+              values: [own_report, prior_column, snapshot]
 
   - name: mart_portfolio_metrics
     description: >

@@ -20,7 +20,7 @@ seeds:
     raw_extractions:
       +column_types:
         value_raw: varchar
-        layer1_verified: boolean
+        verification: varchar
     document_notes:
       +column_types:
         note: varchar

@@ -1,40 +1,40 @@
-"""Layer 1: deterministic extraction of label/value pairs from PDF metric tables.
+"""Layer 1: deterministic label/value/period extraction from PDF metric tables.
 
-The reporting PDFs render metric tables as alternating label/value lines once
-text-extracted. This layer captures every (label, value) pair it can find with
-zero interpretation — no canonical mapping, no unit parsing. Its output is the
-ground truth that Layer 2 (LLM) results are reconciled against.
+Three rules recover table structure from extracted text:
+1. A run of "Q# YYYY" lines defines the table's quarter columns.
+2. A run of value lines is one row: values pair with the quarter columns in order.
+3. Any other text line is a candidate label; a header word starts a new table.
+
+No interpretation happens here — the output is the ground truth that Layer 2
+(LLM) results are reconciled against.
 """
 
 from __future__ import annotations
 
 import re
-from dataclasses import dataclass
+from collections import namedtuple
+from itertools import groupby
 from pathlib import Path
 
 import pypdf
 
-# Matches table values: $8.4M, 6.8M, 78%, 123%, 1,420, 2.4x, +148bps, ($0.75M), $84k, 142
-VALUE_RE = re.compile(
-    r"^\(?[+\-]?\$?[\d,]+(?:\.\d+)?\s*(?:M|B|k|K|bps|x|%)?\)?$"
-)
+# Table values: $8.4M, 6.8M, 78%, 123%, 1,420, 2.4x, +148bps, ($0.75M), $84k, 142
+VALUE_RE = re.compile(r"\(?[+\-]?\$?[\d,]+(?:\.\d+)?\s*(?:M|B|k|K|bps|x|%)?\)?")
 
-# Lines that are table headers or period labels, not metric labels
-NON_LABEL_RE = re.compile(
-    r"^(Metric|Item|Stage|Sector|Q[1-4] \d{4}|Opportunities|Total Pipeline|"
-    r"Weighted|Outstanding Balance|Share of Book)$"
+# A period column header, alone on its line: "Q2 2025"
+PERIOD_RE = re.compile(r"Q[1-4] 20\d\d")
+
+# Table header words: they start a new table and are never metric labels.
+HEADER_RE = re.compile(
+    r"Metric|Item|KPI|Stage|Sector|Platform Metric|Opportunities|"
+    r"Total Pipeline|Weighted|Outstanding Balance|Share of Book"
 )
 
 FILENAME_RE = re.compile(r"^(?P<company>.+)_(?P<period>Q[1-4]_\d{4})\.pdf$")
 
-
-@dataclass
-class RawPair:
-    source_file: str
-    file_company: str | None  # from filename; None for multi-company docs
-    file_period: str | None
-    label_raw: str
-    value_raw: str
+RawPair = namedtuple(
+    "RawPair", "source_file file_company file_period period label_raw value_raw"
+)
 
 
 def extract_text(pdf_path: Path) -> str:
@@ -48,27 +48,45 @@ def parse_filename(name: str) -> tuple[str | None, str | None]:
         return None, None
     company = m.group("company").replace("_", " ")
     period = m.group("period").replace("_", " ")  # Q2_2025 -> Q2 2025
-    if company == "Portfolio Snapshot":
-        return None, period
-    return company, period
+    return (None, period) if company == "Portfolio Snapshot" else (company, period)
+
+
+def _kind(line: str) -> str:
+    if PERIOD_RE.fullmatch(line):
+        return "period"
+    if VALUE_RE.fullmatch(line):
+        return "value"
+    return "text"
 
 
 def parse_pairs(text: str, source_file: str) -> list[RawPair]:
     file_company, file_period = parse_filename(source_file)
+    default = file_period or "unknown"
     lines = [ln.strip() for ln in text.splitlines() if ln.strip()]
+
     pairs: list[RawPair] = []
-    prev: str | None = None
-    for line in lines:
-        is_value = bool(VALUE_RE.match(line))
-        if (
-            is_value
-            and prev is not None
-            and not VALUE_RE.match(prev)
-            and not NON_LABEL_RE.match(prev)
-            and len(prev) < 60  # narrative sentences are not labels
-        ):
-            pairs.append(RawPair(source_file, file_company, file_period, prev, line))
-        prev = line
+    periods, label = [default], None
+    for kind, group_iter in groupby(lines, key=_kind):
+        group = list(group_iter)
+        if kind == "period":
+            periods = group
+        elif kind == "value" and label:
+            # More values than quarter columns means this is not a quarter
+            # table (e.g. a pipeline Stage | Deals | ACV table): keep only
+            # the first value, tagged with the report's own period.
+            row = zip(periods, group) if len(group) <= len(periods) \
+                else [(default, group[0])]
+            pairs += [
+                RawPair(source_file, file_company, file_period, per, label, val)
+                for per, val in row
+            ]
+            label = None
+        elif kind == "text":
+            last = group[-1]
+            if HEADER_RE.fullmatch(last):
+                periods, label = [default], None
+            else:
+                label = last if len(last) < 60 else None
     return pairs
 
 
@@ -84,4 +102,4 @@ if __name__ == "__main__":
         pairs = parse_pdf(pdf)
         print(f"\n=== {pdf.name} ({len(pairs)} pairs) ===")
         for p in pairs:
-            print(f"  {p.label_raw!r:50} -> {p.value_raw!r}")
+            print(f"  [{p.period}] {p.label_raw!r:45} -> {p.value_raw!r}")
