@@ -68,10 +68,6 @@ models:
       Wide review table. Grain: one row per (canonical_company, period).
 
 seeds:
-  - name: raw_extractions
-    description: Output of extract/run_extraction.py — verbatim values, both layers reconciled.
-  - name: document_notes
-    description: Entity and metric-definition notes surfaced by the LLM layer per document.
   - name: entity_map
     description: >
       Human-reviewed mapping from reported company names to canonical entities.

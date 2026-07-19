@@ -15,12 +15,3 @@ models:
     marts:
       +materialized: table
 
-seeds:
-  portfolio_metrics:
-    raw_extractions:
-      +column_types:
-        value_raw: varchar
-        verification: varchar
-    document_notes:
-      +column_types:
-        note: varchar

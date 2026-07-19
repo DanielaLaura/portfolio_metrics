@@ -6,9 +6,10 @@ provably exists in the document — the LLM chose it, but did not invent it.
 Mismatches are flagged, never dropped: the review CSV is the contract with
 the human reviewer.
 
-Outputs (dbt seeds):
-  dbt/seeds/raw_extractions.csv  — one row per (source_file, company, period, metric)
-  dbt/seeds/document_notes.csv   — entity/definition notes per document
+Outputs:
+  data/extracted/raw_extractions.csv — one row per (source_file, company, period, metric)
+  data/extracted/document_notes.csv  — entity/definition notes per document
+Both are then staged into DuckDB as raw.* tables via load_raw.py.
 """
 
 from __future__ import annotations
@@ -20,11 +21,12 @@ import time
 from pathlib import Path
 
 from llm_extract import extract_document, get_client
+from load_raw import load as load_raw
 from parse_tables import extract_text, parse_pdf
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 PDF_DIR = REPO_ROOT / "data" / "pdfs"
-SEED_DIR = REPO_ROOT / "dbt" / "seeds"
+OUT_DIR = REPO_ROOT / "data" / "extracted"
 
 EXTRACTION_COLUMNS = [
     "source_file",
@@ -101,7 +103,7 @@ def reconcile(llm_result: dict, layer1_pairs: list, source_file: str) -> list[di
 
 def main() -> None:
     client = get_client()
-    SEED_DIR.mkdir(parents=True, exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     all_rows: list[dict] = []
     all_notes: list[dict] = []
@@ -122,9 +124,10 @@ def main() -> None:
         print(f"{len(rows)} metrics — pair: {tiers['pair']}, value_only: {tiers['value_only']}, none: {tiers['none']}")
         time.sleep(0.5)  # gentle on rate limits
 
-    write_csv(SEED_DIR / "raw_extractions.csv", all_rows, EXTRACTION_COLUMNS)
-    write_csv(SEED_DIR / "document_notes.csv", all_notes, NOTES_COLUMNS)
-    print(f"\nWrote {len(all_rows)} metric rows and {len(all_notes)} document notes -> {SEED_DIR}")
+    write_csv(OUT_DIR / "raw_extractions.csv", all_rows, EXTRACTION_COLUMNS)
+    write_csv(OUT_DIR / "document_notes.csv", all_notes, NOTES_COLUMNS)
+    print(f"\nWrote {len(all_rows)} metric rows and {len(all_notes)} document notes -> {OUT_DIR}")
+    load_raw()
 
     flagged = [r for r in all_rows if r["verification"] != "pair"]
     if flagged:
