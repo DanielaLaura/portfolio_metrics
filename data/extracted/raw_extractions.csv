@@ -1,0 +1,172 @@
+source_file,company_name,period,currency,canonical_metric,reported_label,value_raw,verification,notes
+ApexFreight_Q2_2025.pdf,Apex Freight Solutions Inc.,Q2 2025,USD,recognized_revenue,Total Recognized Revenue,9.3M,pair,"Chosen as the total revenue figure for the period. Comprised of Recognized Revenue (transaction) of 8.6M and SaaS Tool Fee Revenue of 0.7M, both disclosed separately for the first time in Q2 2025. Rebrand-related legal and design costs of 0.2M are included in operating expenses and not excluded from Gross Margin."
+ApexFreight_Q2_2025.pdf,Apex Freight Solutions Inc.,Q2 2025,USD,gross_margin,Gross Margin,54%,pair,Rebrand-related legal and design costs of 0.2M are included in Q2 2025 operating expenses and not separately excluded from Gross Margin.
+ApexFreight_Q2_2025.pdf,Apex Freight Solutions Inc.,Q2 2025,USD,headcount,Total Headcount,204,pair,
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,arr,Contracted ARR,$16.9M,pair,Footnote (1): Contracted ARR excludes one-time integration fees and professional services revenue.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,arr,Contracted ARR,$15.2M,pair,Footnote (1): Contracted ARR excludes one-time integration fees and professional services revenue.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,recognized_revenue,Recognized Revenue,$4.1M,pair,Excludes one-time partnership integration fee of +$0.2M from a large accounting network.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,recognized_revenue,Recognized Revenue,$3.8M,pair,Excludes one-time partnership integration fee of +$0.2M from a large accounting network.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,gross_margin,Gross Margin,73%,pair,Footnote (3): Gross Margin excludes customer success and data science costs.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,gross_margin,Gross Margin,72%,pair,Footnote (3): Gross Margin excludes customer success and data science costs.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,net_dollar_retention,Net Revenue Retention (LTM),121%,pair,"Measured on an LTM (last twelve months) basis, not point-in-time quarterly."
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,net_dollar_retention,Net Revenue Retention (LTM),118%,pair,"Measured on an LTM (last twelve months) basis, not point-in-time quarterly."
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,logo_churn,Logo Churn (LTM),3.8%,pair,Measured on an LTM (last twelve months) basis.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,logo_churn,Logo Churn (LTM),4.1%,pair,Measured on an LTM (last twelve months) basis.
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,headcount,Total Headcount,78,pair,
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,headcount,Total Headcount,72,pair,
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,monthly_net_burn,Monthly Net Burn,($0.55M),pair,
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,monthly_net_burn,Monthly Net Burn,($0.61M),pair,
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q2 2025,USD,cash_balance,Cash Balance,$13.8M,pair,
+CarbonTrack_Q2_2025.pdf,CarbonTrack Analytics Corp.,Q1 2025,USD,cash_balance,Cash Balance,$14.8M,pair,
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q2 2025,USD,recognized_revenue,Total Recognized Revenue,$17.3M,pair,"Sum of Net Revenue ($14.8M take-rate based), Platform Access Revenue ($2.1M), and Implementation Services Revenue ($0.4M). This is the total across all revenue lines for the period."
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q1 2025,USD,recognized_revenue,Total Recognized Revenue,$16.1M,pair,"Sum of Net Revenue ($13.5M take-rate based), Platform Access Revenue ($1.9M), and Implementation Services Revenue ($0.7M). This is the total across all revenue lines for the period."
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q2 2025,USD,gross_margin,Gross Margin,67%,pair,
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q1 2025,USD,gross_margin,Gross Margin,66%,pair,
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q2 2025,USD,headcount,Total Headcount,211,pair,
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q1 2025,USD,headcount,Total Headcount,203,pair,
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q2 2025,USD,cash_balance,Cash & Restricted Cash,$38.4M,pair,"Includes $6.2M held in segregated client float accounts under state money transmitter regulations. Available operating cash at period end was $32.2M. Per footnote (3), restricted cash of $6.2M is excluded from all liquidity and runway calculations."
+ClearPay_Q2_2025.pdf,ClearPay Technologies Ltd.,Q1 2025,USD,cash_balance,Cash & Restricted Cash,$40.1M,pair,Includes restricted cash component per money transmitter regulations. Available operating cash figure not separately stated for Q1.
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,arr,Annual Recurring Revenue,$18.6M,pair,"Reflects signed, active contracts only; excludes month-to-month arrangements (<2% of accounts) per footnote (1)."
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,arr,Annual Recurring Revenue,$17.1M,pair,"Reflects signed, active contracts only; excludes month-to-month arrangements (<2% of accounts) per footnote (1)."
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,recognized_revenue,Quarterly Recognized Revenue,$4.5M,pair,
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,recognized_revenue,Quarterly Recognized Revenue,$4.2M,pair,
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,gross_margin,Gross Margin,71%,pair,
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,gross_margin,Gross Margin,70%,pair,
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,net_dollar_retention,Net Revenue Retention (LTM),112%,pair,Labelled 'Net Revenue Retention' (not NDR/NRR); computed on a last-twelve-months basis per footnote (2).
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,net_dollar_retention,Net Revenue Retention (LTM),110%,pair,Labelled 'Net Revenue Retention' (not NDR/NRR); computed on a last-twelve-months basis per footnote (2).
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,logo_churn,Logo Churn (LTM),6.3%,pair,Computed on a last-twelve-months basis.
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,logo_churn,Logo Churn (LTM),6.8%,pair,Computed on a last-twelve-months basis.
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,headcount,Total Headcount,89,pair,
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,headcount,Total Headcount,84,pair,
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,cash_balance,Cash & Equivalents,$11.2M,pair,Reported as 'Cash & Equivalents' (does not include restricted cash).
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,cash_balance,Cash & Equivalents,$12.1M,pair,Reported as 'Cash & Equivalents' (does not include restricted cash).
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q2 2025,USD,monthly_net_burn,Quarterly Net Burn,($0.91M),pair,"Reported on a quarterly basis, NOT monthly. Do not divide to derive monthly burn."
+ConstructIQ_Q2_2025.pdf,ConstructIQ Solutions Inc.,Q1 2025,USD,monthly_net_burn,Quarterly Net Burn,($0.97M),pair,"Reported on a quarterly basis, NOT monthly. Do not divide to derive monthly burn."
+FleetLink_Q1_2025.pdf,FleetLink Logistics Network,Q1 2025,USD,recognized_revenue,Gross Transaction Revenue,8.9M,pair,Labelled 'Gross Transaction Revenue' reflecting all fees earned on completed shipments. Footnote (2) notes this may differ from prior 'Platform Revenue' label — possible definition/label change vs prior quarters. Extracted as closest available total revenue metric; not strictly 'recognized revenue' in a GAAP sense — flag for review.
+FleetLink_Q1_2025.pdf,FleetLink Logistics Network,Q1 2025,USD,gross_margin,Gross Margin,52%,pair,
+FleetLink_Q1_2025.pdf,FleetLink Logistics Network,Q1 2025,USD,headcount,Headcount (commentary),199,none,"Sourced from prose commentary ('The team ended the quarter at 199 employees'). Footnote (4) confirms this is period-end headcount disclosed in commentary, not tabled this quarter."
+FleetLink_Q4_2024.pdf,FleetLink Logistics Network,Q4 2024,unknown,recognized_revenue,Platform Revenue (recognized),9.0M,pair,Labelled 'Platform Revenue (recognized)'; transaction-based revenue plus SaaS tool fees. Currency not explicitly stated in document.
+FleetLink_Q4_2024.pdf,FleetLink Logistics Network,Q4 2024,unknown,gross_margin,Gross Margin,51%,pair,Described as reflecting ongoing optimisation of carrier pricing incentives.
+FleetLink_Q4_2024.pdf,FleetLink Logistics Network,Q4 2024,unknown,headcount,Total Headcount,196,pair,Quarter-end headcount; primarily in product and engineering per prose.
+LendBridge_Q1_2025.pdf,LendBridge Capital Corp.,Q1 2025,USD,recognized_revenue,Recognized Revenue,$12.1M,pair,"Recognized Revenue as labeled in the Condensed Income Summary. Does not include Fee & Ancillary Income ($1.0M), which is reported as a separate line. Interest income-based business; this line reflects gross revenue before interest expense."
+LendBridge_Q1_2025.pdf,LendBridge Capital Corp.,Q1 2025,USD,gross_margin,Gross Margin,61%,pair,
+LendBridge_Q1_2025.pdf,LendBridge Capital Corp.,Q1 2025,USD,headcount,Total Headcount,182,pair,
+LendBridge_Q2_2024.pdf,LendBridge Capital Corp.,Q2 2024,USD,recognized_revenue,Recognized Revenue,$10.1M,pair,"Labeled 'Recognized Revenue' in the Condensed Income Summary table. For a specialty finance company, this represents interest income, origination fees, and ancillary treasury services combined. Fee & Other Income ($0.7M) appears to be a separate line, so this $10.1M likely reflects interest/core revenue only; relationship to total revenue is ambiguous. Extracted verbatim as labeled."
+LendBridge_Q2_2024.pdf,LendBridge Capital Corp.,Q2 2024,USD,gross_margin,Gross Margin,58%,pair,"Per footnote (3), Gross Margin reflects interest income net of cost of funds only — not a fully loaded COGS margin."
+LendBridge_Q2_2024.pdf,LendBridge Capital Corp.,Q2 2024,USD,ebitda,Pre-Provision Operating Margin,29%,pair,"Closest available metric to EBITDA/operating profitability. Per footnote (2), excludes loan loss provisions and non-recurring items. Reported as a margin (%), not an absolute value. Not a standard EBITDA definition — flagged accordingly."
+LendBridge_Q2_2024.pdf,LendBridge Capital Corp.,Q2 2024,USD,headcount,Total Headcount,162,pair,
+LendBridge_Q2_2025.pdf,LendBridge Capital Corp.,Q2 2025,USD,recognized_revenue,Recognized Revenue,$12.7M,pair,"Taken from the Condensed Income Summary table. Represents total recognized revenue for the period; revenue is generated through interest income, fees, and ancillary treasury services."
+LendBridge_Q2_2025.pdf,LendBridge Capital Corp.,Q2 2025,USD,gross_margin,Gross Margin,62%,pair,Per footnote (4): Gross Margin reflects interest income net of cost of funds; excludes provisions and operating expenses.
+LendBridge_Q2_2025.pdf,LendBridge Capital Corp.,Q2 2025,USD,headcount,Total Headcount,188,pair,Sourced from Credit Portfolio Indicators table.
+LendBridge_Q3_2024.pdf,LendBridge Capital Corp.,Q3 2024,USD,recognized_revenue,Recognized Revenue,$10.8M,pair,
+LendBridge_Q3_2024.pdf,LendBridge Capital Corp.,Q3 2024,USD,gross_margin,Gross Margin,59%,pair,
+LendBridge_Q3_2024.pdf,LendBridge Capital Corp.,Q3 2024,USD,headcount,Total Headcount,169,pair,
+LendBridge_Q4_2024.pdf,LendBridge Capital Corp.,Q4 2024,USD,recognized_revenue,Recognized Revenue,$11.4M,pair,Extracted from Condensed Income Summary table. This is the top-line recognized revenue figure; Fee & Ancillary Income ($0.9M) is a separate line and not included in this figure.
+LendBridge_Q4_2024.pdf,LendBridge Capital Corp.,Q4 2024,USD,gross_margin,Gross Margin,60%,pair,Per footnote (3): Gross Margin reflects net interest income net of cost of funds; excludes provisions and operating expenses. Per footnote (2): Adjusted Operating Margin is not reported this quarter.
+LendBridge_Q4_2024.pdf,LendBridge Capital Corp.,Q4 2024,USD,headcount,Total Headcount,175,pair,
+MediSight_Q1_2025.pdf,MediSight Data Platform Inc.,Q1 2025,USD,recognized_revenue,Recognized Revenue,6.3M,pair,
+MediSight_Q1_2025.pdf,MediSight Data Platform Inc.,Q1 2025,USD,gross_margin,Gross Margin,76%,pair,"Per footnote (3), Gross Margin excludes implementation and customer success costs, which are reported as operating expenses."
+MediSight_Q1_2025.pdf,MediSight Data Platform Inc.,Q1 2025,USD,arr,Contracted Annual Recurring Revenue,26.1M,pair,"Per footnote (1), 'Contracted Annual Recurring Revenue' is equivalent to 'Contracted ARR' used in prior periods."
+MediSight_Q1_2025.pdf,MediSight Data Platform Inc.,Q1 2025,USD,headcount,Headcount,114,none,"Disclosed in operating commentary prose, not separately tabled this quarter (footnote 2). Prior period headcount of 108 at December 31, 2024 mentioned in prose only."
+MediSight_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,USD,recognized_revenue,Recognized Revenue,6.8M,pair,Single column table; currency assumed USD based on document context.
+MediSight_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,USD,gross_margin,Gross Margin,77%,pair,"Per footnote (4), Gross Margin excludes implementation and customer success costs."
+MediSight_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,USD,arr,Contracted ARR (end of period),27.9M,pair,"Per footnote (1), Contracted ARR represents annualized value of signed, active contracts; excludes renewals under negotiation."
+MediSight_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,USD,headcount,Total Headcount,121,pair,
+MediSight_Q4_2024.pdf,MediSight Data Platform Inc.,Q4 2024,unknown,recognized_revenue,Recognized Revenue,6.1M,pair,Single table column for Q4 2024. Currency not explicitly stated in document.
+MediSight_Q4_2024.pdf,MediSight Data Platform Inc.,Q4 2024,unknown,gross_margin,Gross Margin,75%,pair,"Per footnote (3), Gross Margin excludes implementation and customer success costs."
+MediSight_Q4_2024.pdf,MediSight Data Platform Inc.,Q4 2024,unknown,arr,Contracted ARR (end of period),24.5M,pair,"Per footnote (1), Contracted ARR represents annualized value of signed, active contracts. Label is 'Contracted ARR' rather than plain 'ARR'."
+MediSight_Q4_2024.pdf,MediSight Data Platform Inc.,Q4 2024,unknown,headcount,Total Headcount,108,pair,
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,recognized_revenue,Recognized Revenue (USD),$7.9M,pair,
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,arr,End-of-Period ARR,$31.6M,pair,
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,gross_margin,Gross Margin,77%,pair,
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,net_dollar_retention,NRR (LTM),121%,pair,Reported as 'NRR (Net Revenue Retention)' on an LTM basis. Footnote (1) confirms this is equivalent to Net Dollar Retention in prior reporting periods.
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,logo_churn,Logo Churn (LTM),6.1%,pair,Presented on a last-twelve-months (LTM) basis per footnote (4).
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,cash_balance,Cash Balance,$21.3M,pair,
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,monthly_net_burn,Monthly Net Burn,($0.82M),pair,Reported on a monthly basis.
+NovaCloud_Q1_2025.pdf,NovaCloud Analytics Inc.,Q1 2025,USD,headcount,Total Headcount,135,pair,
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,recognized_revenue,Total Billings (USD),$5.8M,pair,"Labelled 'Total Billings'; footnote (1) states this includes all revenue recognized in the period under ASC 606. Despite the billing label, the document equates it to recognized revenue for the period. Flagged due to label implying a billings definition rather than pure recognized revenue."
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,arr,End-of-Period ARR,$24.1M,pair,
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,gross_margin,Gross Margin,74%,pair,
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,net_dollar_retention,Net Dollar Retention (LTM),115%,pair,Presented on a last-twelve-months (LTM) basis per footnote (2).
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,logo_churn,Logo Churn Rate (LTM),7.8%,pair,Presented on a last-twelve-months (LTM) basis per footnote (2).
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,cash_balance,Cash Balance,$29.5M,pair,
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,monthly_net_burn,Monthly Net Burn,($0.98M),pair,"Reported on a monthly basis. Per footnote (3), reflects operating cash outflows only; excludes one-time items."
+NovaCloud_Q2_2024.pdf,NovaCloud Analytics Inc.,Q2 2024,USD,headcount,Total Headcount,112,pair,
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,recognized_revenue,Recognized Revenue (USD),$8.4M,pair,
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,arr,ARR (End of Period),$34.2M,pair,End-of-period ARR.
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,gross_margin,Gross Margin,78%,pair,
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,net_dollar_retention,Net Dollar Retention,123%,pair,Presented on a last-twelve-months (LTM) basis per footnote (1). Labelled 'NRR' in Q1 2025 reporting — definition is equivalent.
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,logo_churn,Logo Churn (LTM),5.8%,pair,Presented on a last-twelve-months (LTM) basis.
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,cash_balance,Cash Balance,$19.6M,pair,
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,monthly_net_burn,Monthly Net Burn,($0.75M),pair,Reflects operating cash outflows; excludes non-cash stock-based compensation of $0.38M per footnote (3). Reported on a monthly basis.
+NovaCloud_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,headcount,Total Headcount,142,pair,
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,recognized_revenue,Recognized Revenue (USD),$6.5M,pair,Reported under ASC 606 on a ratable basis (per footnote 1).
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,arr,End-of-Period ARR,$26.8M,pair,
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,gross_margin,Gross Margin,75%,pair,
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,net_dollar_retention,Net Dollar Retention (LTM),117%,pair,Measured on a last-twelve-months (LTM) basis per footnote 2.
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,logo_churn,Logo Churn Rate (LTM),7.2%,pair,Measured on a last-twelve-months (LTM) basis per footnote 2.
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,cash_balance,Cash Balance,$26.6M,pair,
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,monthly_net_burn,Monthly Net Burn,($0.95M),pair,Reported on a monthly basis.
+NovaCloud_Q3_2024.pdf,NovaCloud Analytics Inc.,Q3 2024,USD,headcount,Total Headcount,120,pair,
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,recognized_revenue,Net Revenue (USD),$7.2M,pair,Footnote (1) states 'Net Revenue is equivalent to Recognized Revenue in prior periods; terminology updated for board reporting.' Value sourced from table.
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,arr,End-of-Period ARR,$29.1M,pair,
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,logo_churn,Logo Churn Rate (LTM),6.5%,pair,"Footnote (3) confirms this is on a last-twelve-months (LTM) basis, not point-in-time quarterly."
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,cash_balance,Cash Balance,$24.0M,pair,
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,monthly_net_burn,Monthly Net Burn,($0.88M),pair,Reported on a monthly basis in the table.
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,headcount,Total Headcount,128,pair,
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,gross_margin,Gross Margin,76%,none,"Sourced from Performance Commentary prose, not a table. Footnote (2) confirms Gross Margin is discussed in commentary only, not separately tabled."
+NovaCloud_Q4_2024.pdf,NovaCloud Analytics Inc.,Q4 2024,USD,net_dollar_retention,Net dollar retention,119%,none,"Sourced from Performance Commentary prose, not a table. Reported on a trailing-twelve-month (TTM) basis. Footnote (2) confirms NDR is discussed in commentary only, not separately tabled."
+PeopleFlow_Q1_2025.pdf,PeopleFlow HR Systems Ltd.,Q1 2025,GBP,recognized_revenue,Quarterly Revenue,4.7M,pair,Labelled 'Quarterly Revenue'; assumed to represent recognized revenue for the quarter. Q4 2024 figure of 4.4M mentioned in prose only — not extracted per table-column rule.
+PeopleFlow_Q1_2025.pdf,PeopleFlow HR Systems Ltd.,Q1 2025,GBP,arr,Subscription ARR (end of period),19.8M,pair,End-of-period ARR.
+PeopleFlow_Q1_2025.pdf,PeopleFlow HR Systems Ltd.,Q1 2025,GBP,gross_margin,Gross Margin,74%,pair,
+PeopleFlow_Q1_2025.pdf,PeopleFlow HR Systems Ltd.,Q1 2025,GBP,net_dollar_retention,Net Pound Retention – NPR (LTM),117%,pair,"Labelled 'Net Pound Retention (NPR)'; per footnote (2), equivalent to 'Net Dollar Retention' reported in Q4 2024, relabelled to reflect GBP reporting currency. Measured on an LTM basis."
+PeopleFlow_Q1_2025.pdf,PeopleFlow HR Systems Ltd.,Q1 2025,GBP,logo_churn,Annual Logo Churn,4.3%,pair,Annualised on a last-twelve-months (LTM) basis per footnote (4).
+PeopleFlow_Q1_2025.pdf,PeopleFlow HR Systems Ltd.,Q1 2025,GBP,headcount,Total Headcount,92,pair,
+PeopleFlow_Q2_2025.pdf,PeopleFlow HR Systems Ltd.,Q2 2025,GBP,recognized_revenue,Quarterly Revenue,5.1M,pair,"Labelled 'Quarterly Revenue'; taken as recognized revenue for the period. Q1 2025 comparative (4.6M, restated) is prose-only and not extracted per table-column rules. See footnote 2: Q1 2025 was restated from 4.7M to 4.6M due to reversal of a contract modification."
+PeopleFlow_Q2_2025.pdf,PeopleFlow HR Systems Ltd.,Q2 2025,GBP,arr,Subscription ARR (end of period),21.4M,pair,End-of-period ARR. Prior quarter figure (19.8M) mentioned in prose only; not extracted.
+PeopleFlow_Q2_2025.pdf,PeopleFlow HR Systems Ltd.,Q2 2025,GBP,gross_margin,Gross Margin,73%,none,Sourced from commentary prose and footnote 3; not separately tabled this period. Footnote 3 states it is not included in the key metrics table.
+PeopleFlow_Q2_2025.pdf,PeopleFlow HR Systems Ltd.,Q2 2025,GBP,net_dollar_retention,Net Dollar Retention (LTM),118%,pair,Computed in GBP despite label 'Net Dollar Retention'; label maintained for cross-portfolio comparability per footnote 4. LTM (last twelve months) basis.
+PeopleFlow_Q2_2025.pdf,PeopleFlow HR Systems Ltd.,Q2 2025,GBP,logo_churn,Annual Logo Churn,4.2%,pair,Reported on an annual basis.
+PeopleFlow_Q2_2025.pdf,PeopleFlow HR Systems Ltd.,Q2 2025,GBP,headcount,Total Headcount,96,pair,
+PeopleFlow_Q4_2024.pdf,PeopleFlow HR Systems Ltd.,Q4 2024,GBP,recognized_revenue,Quarterly Revenue,4.4M,pair,Labelled 'Quarterly Revenue'; assumed to represent recognized revenue for the period. All figures in GBP per footnote (1).
+PeopleFlow_Q4_2024.pdf,PeopleFlow HR Systems Ltd.,Q4 2024,GBP,arr,Subscription ARR (end of period),18.3M,pair,End-of-period ARR. All figures in GBP per footnote (1).
+PeopleFlow_Q4_2024.pdf,PeopleFlow HR Systems Ltd.,Q4 2024,GBP,gross_margin,Gross Margin,74%,pair,Per footnote (4): reflects cloud hosting and third-party data costs only; excludes customer success costs.
+PeopleFlow_Q4_2024.pdf,PeopleFlow HR Systems Ltd.,Q4 2024,GBP,net_dollar_retention,Net Dollar Retention (LTM),116%,pair,LTM (last-twelve-months) basis. Per footnote (2): computed in GBP; label 'Net Dollar Retention' is maintained for cross-portfolio comparability.
+PeopleFlow_Q4_2024.pdf,PeopleFlow HR Systems Ltd.,Q4 2024,GBP,logo_churn,Annual Logo Churn,4.5%,pair,Per footnote (3): annualised on a last-twelve-months basis.
+PeopleFlow_Q4_2024.pdf,PeopleFlow HR Systems Ltd.,Q4 2024,GBP,headcount,Total Headcount,88,pair,
+Portfolio_Snapshot_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,recognized_revenue,Recognized Revenue,$8.4M,pair,
+Portfolio_Snapshot_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,arr,Annual Recurring Revenue,$34.2M,pair,
+Portfolio_Snapshot_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,gross_margin,Gross Margin,78%,pair,
+Portfolio_Snapshot_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,net_dollar_retention,Net Dollar Retention,123%,pair,
+Portfolio_Snapshot_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,logo_churn,Logo Churn (LTM),5.8%,pair,Measured on an LTM (last twelve months) basis
+Portfolio_Snapshot_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,cash_balance,Cash,$19.6M,pair,Reported as 'Cash'; no further breakdown (e.g. restricted cash) disclosed in this summary
+Portfolio_Snapshot_Q2_2025.pdf,NovaCloud Analytics Inc.,Q2 2025,USD,headcount,FTE,142,pair,
+Portfolio_Snapshot_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,unknown,recognized_revenue,Recognized Revenue,6.8M,pair,No currency symbol shown in the summary table or prose; currency not explicitly stated
+Portfolio_Snapshot_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,unknown,gross_margin,Gross Margin,77%,pair,
+Portfolio_Snapshot_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,unknown,headcount,Headcount,121,pair,
+Portfolio_Snapshot_Q2_2025.pdf,MediSight Data Platform Inc.,Q2 2025,unknown,arr,Contracted ARR,27.9M,none,"Sourced from footnote (2) and a standalone Q2 2025 quarterly report, not from the summary table. Not separately presented in the summary table above per footnote (2). No currency symbol shown."
+Portfolio_Snapshot_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,arr,Contracted ARR,$22.4M,pair,
+Portfolio_Snapshot_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,recognized_revenue,Quarterly Revenue,$5.5M,pair,Labelled 'Quarterly Revenue' rather than 'Recognized Revenue'; assumed to represent quarterly recognized revenue for Q2 2025
+Portfolio_Snapshot_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,gross_margin,Gross Margin,76%,pair,
+Portfolio_Snapshot_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,net_dollar_retention,Net Revenue Retention (LTM),119%,pair,Labelled 'Net Revenue Retention (LTM)'; measured on a last twelve months basis
+Portfolio_Snapshot_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,monthly_net_burn,Monthly Cash Burn,($0.68M),pair,Reported as monthly; labelled 'Monthly Cash Burn'
+Portfolio_Snapshot_Q2_2025.pdf,CarbonTrack,Q2 2025,USD,arr,ARR,$16.9M,pair,
+Portfolio_Snapshot_Q2_2025.pdf,CarbonTrack,Q2 2025,USD,recognized_revenue,Revenue,$4.1M,pair,Labelled simply 'Revenue'; assumed to represent quarterly recognized revenue for Q2 2025
+Portfolio_Snapshot_Q2_2025.pdf,CarbonTrack,Q2 2025,USD,gross_margin,Gross Margin,73%,pair,
+Portfolio_Snapshot_Q2_2025.pdf,CarbonTrack,Q2 2025,USD,net_dollar_retention,Net Revenue Retention,121%,pair,Labelled 'Net Revenue Retention' rather than 'Net Dollar Retention'
+Portfolio_Snapshot_Q2_2025.pdf,CarbonTrack,Q2 2025,USD,headcount,Headcount,78,pair,
+Portfolio_Snapshot_Q2_2025.pdf,CarbonTrack,Q2 2025,USD,monthly_net_burn,Net Burn (monthly),($0.55M),pair,Reported as monthly; labelled 'Net Burn (monthly)'
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,arr,Contracted ARR,$22.4M,pair,"Footnote (1): reflects signed, active contracts; includes multi-year deals at full annualized value."
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q1 2025,USD,arr,Contracted ARR,$20.8M,pair,"Footnote (1): reflects signed, active contracts; includes multi-year deals at full annualized value."
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,recognized_revenue,Quarterly Revenue (recognized),$5.5M,pair,
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q1 2025,USD,recognized_revenue,Quarterly Revenue (recognized),$5.1M,pair,
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,gross_margin,Gross Margin,76%,pair,
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q1 2025,USD,gross_margin,Gross Margin,75%,pair,
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,net_dollar_retention,Net Revenue Retention (LTM),119%,pair,Reported on an LTM (last twelve months) basis. Footnote (2): includes upsell and cross-sell.
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q1 2025,USD,net_dollar_retention,Net Revenue Retention (LTM),116%,pair,Reported on an LTM (last twelve months) basis. Footnote (2): includes upsell and cross-sell.
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,headcount,Total Headcount,103,pair,
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q1 2025,USD,headcount,Total Headcount,97,pair,
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,monthly_net_burn,Monthly Net Burn,($0.68M),pair,Footnote (3): excludes non-cash stock-based compensation of $0.42M/quarter.
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q1 2025,USD,monthly_net_burn,Monthly Net Burn,($0.74M),pair,Footnote (3): excludes non-cash stock-based compensation of $0.42M/quarter.
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q2 2025,USD,cash_balance,Cash Balance,$17.9M,pair,
+TalentVault_Q2_2025.pdf,TalentVault Inc.,Q1 2025,USD,cash_balance,Cash Balance,$19.0M,pair,
