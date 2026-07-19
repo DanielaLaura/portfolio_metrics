@@ -1,14 +1,15 @@
--- Grain: one row per (canonical_company, period, canonical_metric).
--- The tidy long table for analysis. Source precedence per metric:
+-- Periodic snapshot fact. Grain: one row per (canonical_company, period,
+-- canonical_metric). Multiple observations of the same metric are deduped
+-- by source precedence:
 --   1. the quarter's own report
 --   2. a prior-quarter column in a later report
 --   3. the portfolio snapshot
--- Extra sources become cross-source checks; a disagreement involving a
--- prior-quarter column is flagged as a possible restatement.
+-- Extra observations survive as cross-source checks; a disagreement
+-- involving a prior-quarter column is flagged as a possible restatement.
 
-with resolved as (
+with observations as (
 
-    select * from {{ ref('int_metrics_resolved') }}
+    select * from {{ ref('stg_metric_observations') }}
 
 ),
 
@@ -33,7 +34,7 @@ ranked as (
         max(case when provenance = 'prior_column' then 1 else 0 end) over (
             partition by canonical_company, period, canonical_metric
         ) as has_prior_column_source
-    from resolved
+    from observations
 
 )
 

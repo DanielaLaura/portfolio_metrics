@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_metric_observations
+    description: >
+      Observation-grain metric rows: one row per (source_file,
+      canonical_company, period, canonical_metric), tagged with provenance
+      (own_report / prior_column / snapshot) and verification tier.
+    columns:
+      - name: canonical_metric
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values:
+                  - recognized_revenue
+                  - arr
+                  - gross_margin
+                  - ebitda
+                  - net_dollar_retention
+                  - logo_churn
+                  - cash_balance
+                  - monthly_net_burn
+                  - headcount
+      - name: value_num
+        tests:
+          - not_null
+      - name: unit
+        tests:
+          - accepted_values:
+              arguments:
+                values: [currency_m, pct, count, bps, ratio_x]
+      - name: verification
+        tests:
+          - accepted_values:
+              arguments:
+                values: [pair, value_only, none]
+      - name: provenance
+        tests:
+          - accepted_values:
+              arguments:
+                values: [own_report, prior_column, snapshot]

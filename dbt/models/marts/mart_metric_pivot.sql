@@ -4,7 +4,7 @@
 
 with metrics as (
 
-    select * from {{ ref('mart_portfolio_metrics') }}
+    select * from {{ ref('fct_metrics_performance_snapshot') }}
 
 )
 

@@ -8,10 +8,12 @@ test-paths: ["tests"]
 
 models:
   portfolio_metrics:
+    sources:
+      +materialized: view
     staging:
       +materialized: view
-    intermediate:
-      +materialized: view
+    core:
+      +materialized: table
     marts:
       +materialized: table
 

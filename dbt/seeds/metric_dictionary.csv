@@ -1,0 +1,10 @@
+canonical_metric,metric_type,expected_unit
+recognized_revenue,financial,currency_m
+arr,financial,currency_m
+gross_margin,financial,pct
+ebitda,financial,currency_m
+net_dollar_retention,operating,pct
+logo_churn,operating,pct
+cash_balance,financial,currency_m
+monthly_net_burn,financial,currency_m
+headcount,operating,count

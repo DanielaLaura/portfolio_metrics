@@ -1,10 +1,17 @@
 -- Grain: one row per (source_file, company_name, period, canonical_metric).
--- Types the verbatim value strings from extraction: sign, magnitude, unit.
--- All monetary values normalized to millions; percentages kept as numeric percent.
+-- Types the verbatim extraction values — sign, magnitude, unit; monetary
+-- normalized to millions — and resolves reported company names to canonical
+-- entities (rebrands, name variants) via the human-reviewed entity map.
 
 with source as (
 
     select * from {{ source('raw', 'raw_extractions') }}
+
+),
+
+entity_map as (
+
+    select * from {{ ref('entity_map') }}
 
 ),
 
@@ -48,24 +55,26 @@ parsed as (
 )
 
 select
-    source_file,
-    company_name,
-    period,
-    currency,
-    canonical_metric,
-    reported_label,
-    value_raw,
-    verification,
-    notes,
-    unit,
-    case when is_negative then -1 else 1 end
-        * magnitude
-        * case when unit = 'currency_m' then to_millions else 1.0 end
+    parsed.source_file,
+    coalesce(entity_map.canonical_company, parsed.company_name) as canonical_company,
+    parsed.company_name as reported_company,
+    parsed.period,
+    parsed.currency,
+    parsed.canonical_metric,
+    parsed.reported_label,
+    parsed.value_raw,
+    parsed.verification,
+    parsed.notes,
+    parsed.unit,
+    case when parsed.is_negative then -1 else 1 end
+        * parsed.magnitude
+        * case when parsed.unit = 'currency_m' then parsed.to_millions else 1.0 end
         as value_num,
-    -- 'Q2 2025' -> sortable 2025.25
-    cast(regexp_extract(period, 'Q([1-4])', 1) as int) as period_quarter,
-    cast(regexp_extract(period, '(\d{4})', 1) as int) as period_year,
-    cast(regexp_extract(period, '(\d{4})', 1) as int)
-        + (cast(regexp_extract(period, 'Q([1-4])', 1) as int) - 1) / 4.0
+    cast(regexp_extract(parsed.period, 'Q([1-4])', 1) as int) as period_quarter,
+    cast(regexp_extract(parsed.period, '(\d{4})', 1) as int) as period_year,
+    cast(regexp_extract(parsed.period, '(\d{4})', 1) as int)
+        + (cast(regexp_extract(parsed.period, 'Q([1-4])', 1) as int) - 1) / 4.0
         as period_sort
 from parsed
+left join entity_map
+    on parsed.company_name = entity_map.reported_name

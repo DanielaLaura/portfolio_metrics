@@ -1,0 +1,22 @@
+version: 2
+
+seeds:
+  - name: entity_map
+    description: >
+      Human-reviewed mapping from reported company names to canonical
+      entities (e.g. the FleetLink -> Apex Freight rebrand).
+    columns:
+      - name: reported_name
+        tests:
+          - not_null
+          - unique
+      - name: canonical_company
+        tests:
+          - not_null
+  - name: metric_dictionary
+    description: The canonical metric set — type and expected unit per metric.
+    columns:
+      - name: canonical_metric
+        tests:
+          - not_null
+          - unique

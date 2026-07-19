@@ -11,6 +11,6 @@ select
     canonical_metric,
     value_raw,
     n_sources
-from {{ ref('mart_portfolio_metrics') }}
+from {{ ref('fct_metrics_performance_snapshot') }}
 where has_cross_source_check
   and not cross_source_agrees
