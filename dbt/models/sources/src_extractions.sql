@@ -27,6 +27,7 @@ parsed as (
         value_raw,
         verification,
         notes,
+        loaded_at,
 
         (value_raw like '(%' or value_raw like '-%') as is_negative,
 
@@ -65,6 +66,7 @@ select
     parsed.value_raw,
     parsed.verification,
     parsed.notes,
+    parsed.loaded_at,
     parsed.unit,
     case when parsed.is_negative then -1 else 1 end
         * parsed.magnitude

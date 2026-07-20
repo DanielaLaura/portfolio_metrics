@@ -1,4 +1,4 @@
-.PHONY: install extract load build pipeline review
+.PHONY: install extract load build pipeline review rebuild
 
 install:        ## install Python dependencies
 	pip install -r requirements.txt
@@ -16,3 +16,8 @@ pipeline: extract build      ## full run: PDFs -> extraction -> warehouse -> mar
 
 review: load build           ## reviewer path: rebuild from committed CSVs, show the pivot
 	cd dbt && dbt show --profiles-dir . --select mart_metric_pivot --limit 40
+
+rebuild:        ## full refresh: drop raw tables, reload CSVs, rebuild all models
+	python3 -c "import duckdb; duckdb.connect('dbt/target/portfolio.duckdb').execute('drop schema if exists raw cascade')"
+	cd extract && python3 load_raw.py
+	cd dbt && dbt build --profiles-dir . --full-refresh
