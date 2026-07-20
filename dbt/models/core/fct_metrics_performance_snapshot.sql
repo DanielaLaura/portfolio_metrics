@@ -1,11 +1,12 @@
--- Periodic snapshot fact. Grain: one row per (canonical_company, period,
--- canonical_metric). Multiple observations of the same metric are deduped
--- by source precedence:
+-- Periodic snapshot fact with one row per (canonical_company, period,
+-- canonical_metric). When the same metric is observed in several documents,
+-- the surviving row is chosen by source precedence:
 --   1. the quarter's own report
 --   2. a prior-quarter column in a later report
 --   3. the portfolio snapshot
--- Extra observations survive as cross-source checks; a disagreement
--- involving a prior-quarter column is flagged as a possible restatement.
+-- The extra observations are kept as cross-source checks, and a
+-- disagreement that involves a prior-quarter column gets flagged as a
+-- possible restatement.
 
 with observations as (
 

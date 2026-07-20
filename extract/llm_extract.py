@@ -1,11 +1,12 @@
 """Layer 2: LLM structured extraction with canonical metric mapping.
 
-One Claude call per PDF. The model maps each company's idiosyncratic labels
-("Contracted ARR", "End-of-Period ARR", "Annual Recurring Revenue") onto a
-small canonical schema, detects currency, and surfaces footnotes about
-rebrands and metric definition changes. Values are returned VERBATIM — all
-typing and unit conversion happens downstream in dbt, so this layer never
-does arithmetic.
+Each PDF goes through one Claude call. The model maps every company's
+idiosyncratic labels, such as "Contracted ARR", "End-of-Period ARR" or
+"Annual Recurring Revenue", onto a small canonical schema, detects the
+reporting currency, and surfaces footnotes about rebrands and metric
+definition changes. Values are returned VERBATIM, because all typing and
+unit conversion happens downstream in dbt, so this layer never does
+arithmetic.
 """
 
 from __future__ import annotations
@@ -108,7 +109,7 @@ def get_client() -> anthropic.Anthropic:
     load_dotenv()
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
-        raise SystemExit("ANTHROPIC_API_KEY not set — copy .env.example to .env and add your key.")
+        raise SystemExit("ANTHROPIC_API_KEY is not set. Copy .env.example to .env and add your key.")
     return anthropic.Anthropic(api_key=key)
 
 

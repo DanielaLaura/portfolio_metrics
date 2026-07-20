@@ -1,6 +1,6 @@
 -- Warn when an extracted metric's parsed unit differs from the metric
--- dictionary's expected unit — usually an extraction error (e.g. a
--- percentage captured where millions were expected).
+-- dictionary's expected unit, which usually means an extraction error,
+-- such as a percentage captured where millions were expected.
 
 {{ config(severity='warn') }}
 

@@ -3,9 +3,10 @@ version: 2
 models:
   - name: stg_metric_observations
     description: >
-      Observation-grain metric rows: one row per (source_file,
-      canonical_company, period, canonical_metric), tagged with provenance
-      (own_report / prior_column / snapshot) and verification tier.
+      Observation-grain metric rows, one per (source_file,
+      canonical_company, period, canonical_metric), tagged with a
+      provenance of own_report, prior_column or snapshot and with a
+      verification tier.
     columns:
       - name: canonical_metric
         tests:

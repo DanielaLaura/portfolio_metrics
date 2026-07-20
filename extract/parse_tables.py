@@ -1,12 +1,18 @@
 """Layer 1: deterministic label/value/period extraction from PDF metric tables.
 
-Three rules recover table structure from extracted text:
-1. A run of "Q# YYYY" lines defines the table's quarter columns.
-2. A run of value lines is one row: values pair with the quarter columns in order.
-3. Any other text line is a candidate label; a header word starts a new table.
+When a PDF is text-extracted its metric tables flatten into period headers,
+label lines and value lines, and three rules are enough to recover the
+structure:
 
-No interpretation happens here — the output is the ground truth that Layer 2
-(LLM) results are reconciled against.
+1. A run of "Q# YYYY" lines defines the table's quarter columns.
+2. A run of value lines is one row, and the values pair with the quarter
+   columns in order.
+3. Any other text line is a candidate label, and a header word such as
+   "Metric", "KPI" or "Stage" starts a new table.
+
+Nothing gets interpreted here, there is no canonical mapping and no unit
+parsing. The output serves as the ground truth that the LLM results are
+reconciled against.
 """
 
 from __future__ import annotations

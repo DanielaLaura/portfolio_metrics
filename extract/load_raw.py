@@ -1,7 +1,8 @@
-"""Load extraction CSVs into the DuckDB warehouse as raw.* tables.
+"""Load the extraction CSVs into the DuckDB warehouse as raw.* tables.
 
-Standalone on purpose: a reviewer without an API key can load the committed
-CSVs and run dbt against them without re-running extraction.
+This script is standalone on purpose, so a reviewer without an API key can
+load the committed CSVs and run dbt against them without re-running the
+extraction.
 """
 
 from __future__ import annotations

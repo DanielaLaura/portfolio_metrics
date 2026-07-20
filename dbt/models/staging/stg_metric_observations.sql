@@ -1,12 +1,12 @@
 -- Grain: one row per OBSERVATION (source_file, canonical_company, period,
--- canonical_metric). A metric can be observed more than once — in its own
+-- canonical_metric). A metric can be observed more than once, in its own
 -- quarter's report, in a later report's prior-quarter column, and in the
--- portfolio snapshot. Each observation is tagged with its provenance; the
--- core fact dedups to snapshot grain.
+-- portfolio snapshot. Each observation is tagged with its provenance and
+-- the core fact later dedups to snapshot grain.
 --
--- Staging is a single model on purpose: extraction normalizes company
--- variance upstream, so all companies share one schema. It splits per
--- company the day one needs custom SQL.
+-- Staging is a single model on purpose. Extraction normalizes company
+-- variance upstream, so all companies share one schema, and the model
+-- splits per company the day one of them needs custom SQL.
 
 with src as (
 

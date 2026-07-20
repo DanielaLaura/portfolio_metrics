@@ -1,14 +1,14 @@
 """Orchestrator: run both extraction layers on every PDF and reconcile.
 
-For each canonical metric the LLM returns, we check its verbatim value against
-the deterministic label/value pairs from Layer 1. A match means the number
-provably exists in the document — the LLM chose it, but did not invent it.
-Mismatches are flagged, never dropped: the review CSV is the contract with
-the human reviewer.
+For each canonical metric the LLM returns, its verbatim value is checked
+against the deterministic label/value pairs from Layer 1. A match means the
+number provably exists in the document, so the LLM chose it but did not
+invent it. Mismatches are flagged rather than dropped, since the review CSV
+is the contract with the human reviewer.
 
 Outputs:
-  data/extracted/raw_extractions.csv — one row per (source_file, company, period, metric)
-  data/extracted/document_notes.csv  — entity/definition notes per document
+  data/extracted/raw_extractions.csv, one row per (source_file, company, period, metric)
+  data/extracted/document_notes.csv, entity and definition notes per document
 Both are then staged into DuckDB as raw.* tables via load_raw.py.
 """
 
@@ -62,10 +62,13 @@ def normalize_label(s: str) -> str:
 def reconcile(llm_result: dict, layer1_pairs: list, source_file: str) -> list[dict]:
     """Grade each LLM metric against the deterministic net.
 
-    pair       — label, value, and quarter all match: fully verified
-    value_only — the number exists in that quarter under a different label
-                 (e.g. footnote/prose the parser cannot pair): review
-    none       — the number is not in the parser's net at all: flag hard
+    pair       means label, value and quarter all match, so the row is
+               fully verified
+    value_only means the number exists in that quarter under a different
+               label, usually prose or a footnote the parser cannot pair,
+               so the row needs review
+    none       means the number is not in the parser's net at all and the
+               row gets flagged hard
     """
     triples = {
         (normalize_label(p.label_raw), normalize_value(p.value_raw), p.period)
@@ -121,7 +124,7 @@ def main() -> None:
                     {"source_file": pdf.name, "note_type": note_type, "note": result[note_type]}
                 )
         tiers = {t: sum(1 for r in rows if r["verification"] == t) for t in ("pair", "value_only", "none")}
-        print(f"{len(rows)} metrics — pair: {tiers['pair']}, value_only: {tiers['value_only']}, none: {tiers['none']}")
+        print(f"{len(rows)} metrics | pair: {tiers['pair']}, value_only: {tiers['value_only']}, none: {tiers['none']}")
         time.sleep(0.5)  # gentle on rate limits
 
     write_csv(OUT_DIR / "raw_extractions.csv", all_rows, EXTRACTION_COLUMNS)

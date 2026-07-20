@@ -4,11 +4,12 @@ sources:
   - name: raw
     description: >
       Extraction pipeline output. extract/run_extraction.py writes
-      data/extracted/*.csv; extract/load_raw.py stages them into the
-      warehouse as raw.* tables. dbt does not own these — it observes them.
+      data/extracted/*.csv and extract/load_raw.py stages them into the
+      warehouse as raw.* tables. dbt observes these tables but does not
+      own them.
     schema: raw
     tables:
       - name: raw_extractions
-        description: One row per (source_file, company, period, metric) — verbatim values, verification-tiered.
+        description: One row per (source_file, company, period, metric), with verbatim values and a verification tier.
       - name: document_notes
-        description: Entity and metric-definition notes surfaced by the LLM layer per document.
+        description: Entity and metric-definition notes surfaced by the LLM layer for each document.

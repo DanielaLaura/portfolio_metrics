@@ -1,7 +1,7 @@
 -- Grain: one row per (source_file, company_name, period, canonical_metric).
--- Types the verbatim extraction values — sign, magnitude, unit; monetary
--- normalized to millions — and resolves reported company names to canonical
--- entities (rebrands, name variants) via the human-reviewed entity map.
+-- Types the verbatim extraction values into sign, magnitude and unit, with
+-- monetary values normalized to millions, and resolves reported company
+-- names to canonical entities via the human-reviewed entity map.
 
 with source as (
 

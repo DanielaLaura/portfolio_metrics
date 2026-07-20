@@ -3,10 +3,11 @@ version: 2
 models:
   - name: fct_metrics_performance_snapshot
     description: >
-      Periodic snapshot fact. Grain: one row per (canonical_company, period,
-      canonical_metric). Deduped by source precedence (own report >
-      prior-quarter column > snapshot); losing observations survive as
-      cross-source agreement checks and restatement flags.
+      Periodic snapshot fact with one row per (canonical_company, period,
+      canonical_metric). Rows are deduped by source precedence, with the
+      quarter's own report winning over a prior-quarter column and the
+      snapshot last, and the losing observations survive as cross-source
+      agreement checks and restatement flags.
     columns:
       - name: metric_key
         tests:
@@ -17,7 +18,7 @@ models:
           - not_null
 
   - name: dim_company
-    description: One row per canonical portfolio company, with reported name aliases.
+    description: One row per canonical portfolio company, with the other names it has reported under.
     columns:
       - name: canonical_company
         tests:
