@@ -1,7 +1,3 @@
--- Grain: one row per (canonical_company, period).
--- Wide human-review table: one column per canonical metric.
--- Monetary values in millions of the company's reporting currency.
-
 with metrics as (
 
     select * from {{ ref('fct_metrics_performance_snapshot') }}

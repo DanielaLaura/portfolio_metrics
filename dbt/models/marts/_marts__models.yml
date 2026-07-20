@@ -2,7 +2,4 @@ version: 2
 
 models:
   - name: mart_metric_pivot
-    description: >
-      Human review table with one row per (canonical_company, period), one
-      column per canonical metric, and quality counters for unverified
-      rows, rows needing review, restatements and cross-source conflicts.
+    description: '{{ doc("mart_metric_pivot") }}'

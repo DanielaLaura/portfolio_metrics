@@ -1,20 +1,3 @@
--- Periodic snapshot fact with one row per (canonical_company, period,
--- canonical_metric). When the same metric is observed in several documents,
--- the surviving row is chosen by source precedence:
---   1. the quarter's own report
---   2. a prior-quarter column in a later report
---   3. the portfolio snapshot
--- The extra observations are kept as cross-source checks, and a
--- disagreement that involves a prior-quarter column gets flagged as a
--- possible restatement.
---
--- The build is incremental by grain key, not by period, because a new
--- document can revise an old quarter: a Q3 report carries a Q2 comparison
--- column and a late snapshot adds a cross-check, both of which change the
--- evidence columns on an existing row. Any key touched by a new batch is
--- rebuilt from ALL of its observations via delete+insert, so the window
--- functions always see the complete picture for that key.
-
 {{ config(
     materialized='incremental',
     unique_key='metric_key',

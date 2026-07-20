@@ -1,5 +1,3 @@
--- Grain: one row per canonical portfolio company.
-
 with src as (
 
     select * from {{ ref('src_extractions') }}

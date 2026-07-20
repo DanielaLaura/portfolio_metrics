@@ -10,6 +10,6 @@ sources:
     schema: raw
     tables:
       - name: raw_extractions
-        description: One row per (source_file, company, period, metric), with verbatim values and a verification tier.
+        description: '{{ doc("raw_extractions") }}'
       - name: document_notes
-        description: Entity and metric-definition notes surfaced by the LLM layer for each document.
+        description: '{{ doc("document_notes") }}'

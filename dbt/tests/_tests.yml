@@ -1,0 +1,7 @@
+version: 2
+
+data_tests:
+  - name: assert_cross_source_agreement
+    description: '{{ doc("assert_cross_source_agreement") }}'
+  - name: assert_units_match_dictionary
+    description: '{{ doc("assert_units_match_dictionary") }}'

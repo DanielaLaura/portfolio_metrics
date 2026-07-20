@@ -2,9 +2,7 @@ version: 2
 
 seeds:
   - name: entity_map
-    description: >
-      Human-reviewed mapping from reported company names to canonical
-      entities, such as the FleetLink to Apex Freight rebrand.
+    description: '{{ doc("entity_map") }}'
     columns:
       - name: reported_name
         tests:
@@ -14,7 +12,7 @@ seeds:
         tests:
           - not_null
   - name: metric_dictionary
-    description: The canonical metric set, with the type and expected unit of each metric.
+    description: '{{ doc("metric_dictionary") }}'
     columns:
       - name: canonical_metric
         tests:
