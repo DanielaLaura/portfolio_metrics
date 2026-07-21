@@ -206,7 +206,7 @@ select * from stg_metric_observations         -- every observation, all sources
 .quit
 ```
 
-No DuckDB CLI? The same peek works through dbt:
+To use dbt instead of the DuckDB CLI, run this:
 
 ```bash
 cd dbt && dbt show --profiles-dir . --select mart_metric_pivot --limit 40
