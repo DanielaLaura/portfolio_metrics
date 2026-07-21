@@ -16,6 +16,7 @@ A crawl-phase proof of concept that extracts key financial and operating metrics
 
 ## How to run
 
+    python3 -m venv .venv && source .venv/bin/activate
     make install        # Python deps (Python 3.11+)
     make review         # reviewer path: rebuilds everything from the committed
                         # extraction output, no API key needed. Loads the CSVs
