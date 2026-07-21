@@ -27,6 +27,11 @@ A crawl-phase proof of concept that extracts key financial and operating metrics
     cp .env.example .env      # then add your key
     make pipeline
 
+    # Re-running the pipeline does not change anything: documents that are
+    # already loaded get skipped. New PDFs in data/pdfs/ get picked up and
+    # only their rows are processed. If you change the extraction and want
+    # everything redone, run `make rebuild`.
+
 ## Architecture
 
     PDFs (data/pdfs/)
@@ -57,6 +62,29 @@ A crawl-phase proof of concept that extracts key financial and operating metrics
 3. `run_extraction.py` grades every value the LLM returned against the harvest from step 1 and records a verification tier of pair, value_only or none, then writes everything to `data/extracted/*.csv`.
 4. `load_raw.py` stages those CSVs into DuckDB as `raw.*` tables.
 5. dbt takes it from there: sources handle typing and entity resolution, staging tags each observation with its provenance, core dedups to the snapshot fact and builds the dimensions, and the mart produces the review pivot.
+
+## Warehouse schema
+
+```
+                        dim_company                    dim_metric
+                        1 row per company              1 row per metric (9)
+                        PK canonical_company           PK canonical_metric
+                             │                              │
+                             └──────────┐      ┌────────────┘
+                                        ▼      ▼
+                    fct_metrics_performance_snapshot
+                    1 row per company × period × metric
+                    PK metric_key · value_num · provenance
+                    verification · cross-source flags
+                                        │
+                                        ▼
+                             mart_metric_pivot
+                             1 row per company × period
+                             metrics as columns + quality counters
+```
+
+Full model documentation lives in `dbt/models/docs.md` and renders with
+`dbt docs serve --profiles-dir .`, including the lineage graph.
 
 ## Worked example: `CarbonTrack_Q2_2025.pdf`, table to warehouse
 
