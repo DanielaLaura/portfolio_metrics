@@ -1,5 +1,15 @@
 # Portfolio Metrics Extraction
 
+**TL;DR**
+
+**Problem:** portfolio companies report the same metrics under different names and formats, and everything comes as PDFs, which have no structure you can crawl. Comparing companies means reading the reports by hand.
+
+**Difficulties:** the same metric has four different labels, one company rebranded mid-year, one reports in GBP, prior quarters show up restated in later reports, and some numbers appear only in prose.
+
+**Solution:** a deterministic parser extracts every label and value from the page, an LLM maps the labels to 9 canonical metrics, a reconciliation step checks each LLM value against the parsed pairs and flags mismatches, and dbt models the verified output into a snapshot fact with tests and provenance. The end result is one review table per company and quarter.
+
+---
+
 A crawl-phase proof of concept that extracts key financial and operating metrics from heterogeneous portfolio company PDF reports and lands them in a queryable, tested warehouse table.
 
 24 sample PDFs in, 9 canonical metrics out, one reviewable table per company and quarter.
