@@ -117,6 +117,7 @@ def extract_document(client: anthropic.Anthropic, text: str, source_file: str) -
     response = client.messages.create(
         model=MODEL,
         max_tokens=4096,
+        temperature=0,
         system=[{"type": "text", "text": SYSTEM_PROMPT, "cache_control": {"type": "ephemeral"}}],
         tools=[EXTRACTION_TOOL],
         tool_choice={"type": "tool", "name": "record_extraction"},
