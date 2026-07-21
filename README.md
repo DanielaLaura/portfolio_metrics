@@ -248,5 +248,6 @@ Recognized revenue, ARR, gross margin, EBITDA, net dollar retention, logo churn,
 - **FX normalization**, with a rates table and a USD-normalized column in core.
 - **Point-in-time modeling**, keeping restated values as versions (as reported versus latest) instead of picking one by precedence.
 - **Layout-aware parsing** with pdfplumber coordinates, for scanned or complex PDFs where the line-pairing heuristic breaks.
-- **An extraction eval set**: hand-label a gold subset and score every extraction change against it in CI.
+- **A real extraction agent.** Instead of one prompt, an agent that knows how to read each type of report and its variations through skills, one skill per report type, with a contract on what it has to report back.
+- **Evals above reconciliation.** Reconciliation only checks that a number exists on the page. Higher level evals would check that the right number ended up in the right metric and the right period, starting from a hand labeled subset.
 - **A thin BI layer** on `mart_metric_pivot`, which is already dashboard-shaped.
